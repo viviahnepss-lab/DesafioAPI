@@ -13,7 +13,7 @@ public class Produtos {
     private String thumbnail;
 
 
-    public Produtos(String title, String description, int price, float discountPercentage, float rating, int stock, String brand, String category, String thumbnail) {
+    public Produtos() {
         this.title = title;
         this.description = description;
         this.price = price;
@@ -73,7 +73,7 @@ public class Produtos {
         this.stock = stock;
     }
 
-    public String getBrand() {
+    public String getBrand(long l) {
         return brand;
     }
 
