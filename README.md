@@ -2,12 +2,14 @@
 
 
 
-## Pré - Requisitos 
+## Pré - Requisitos
 Para execução deste projeto é necessário ter as seguintes ferramentas e confurações:
 
 * IntelliJ IDEA 2021.2.3 (Community Edition) ou superior
 * JAVA SDK 17 
- 
+
+## Estrutura do projeto:
+
 
 ## Como executar projeto: 
  1. Clone o projeto [GITLAB](https://gitlab.com/viviahnepss-group/viviahnepss-project/-/tree/main?ref_type=heads) 
