@@ -5,6 +5,7 @@ public class Token {
     private String username;
     private String password;
 
+
     public Token(String username, String password) {
         this.username = username;
         this.password = password;

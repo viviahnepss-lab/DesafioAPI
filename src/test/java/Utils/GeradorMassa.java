@@ -1,28 +1,42 @@
 package Utils;
 
 import Model.Produtos;
+import Model.Users;
 import com.github.javafaker.Faker;
 
 public class GeradorMassa {
     Faker faker = new Faker();
 
-    public Produtos geradorProduto() {
-        Produtos pr = new Produtos();
-        pr.setTitle(faker.beer().name());
-        pr.setDescription(faker.beer().style());
-        pr.setPrice(faker.number().numberBetween(1, 50));
-        pr.setDiscountPercentage(faker.number().randomNumber());
-        pr.setRating(faker.number().randomDigitNotZero());
-        pr.setStock(faker.random().nextInt(1, 50));
-        pr.setBrand(faker.beer().malt());
-        pr.setCategory(faker.beer().style());
-        pr.setThumbnail(faker.internet().domainName().toString());
-        return pr;
-    }
 
     public int geradorId() {
         int id=faker.random().nextInt(1,50);
         return id;
      }
+
+    public String geradorLetra() {
+        String id=faker.letterify("?");
+        return id;
+    }
+    public Users geraUsuario() {
+
+        Users usuario = new Users ();
+        usuario.setFirstName(faker.name().firstName());
+        usuario.setPassword(faker.name().firstName()+geradorId());
+
+      return usuario;
+    }
+    public Produtos geraProduto() {
+
+        Produtos produto = new Produtos ();
+        produto.setTitle(faker.commerce().productName());
+        produto.setDescription((faker.commerce().material()));
+        produto.setPrice(faker.commerce().price(1.00,10000.00));
+        produto.setDiscountPercentage((faker.number().digit()));
+        produto.setStock(faker.number().digit());
+        produto.setBrand(faker.artist().name());
+        produto.setCategory(faker.commerce().department());
+        produto.setThumbnail("https://"+faker.internet().url());
+        return produto;
+    }
 
 }

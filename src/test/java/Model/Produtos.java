@@ -4,10 +4,10 @@ public class Produtos {
 
     private String  title;
     private String description;
-    private int price;
-    private float discountPercentage;
-    private double rating;
-    private int stock;
+    private String price;
+    private String discountPercentage;
+    private String rating;
+    private String stock;
     private String brand;
     private String category;
     private String thumbnail;
@@ -41,45 +41,45 @@ public class Produtos {
         this.description = description;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public float getDiscountPercentage() {
+    public String getDiscountPercentage() {
         return discountPercentage;
     }
 
-    public void setDiscountPercentage(float discountPercentage) {
+    public void setDiscountPercentage(String discountPercentage) {
         this.discountPercentage = discountPercentage;
     }
 
-    public double getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(float rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
-    public int getStock() {
+    public String getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(String stock) {
         this.stock = stock;
     }
 
-    public String getBrand(long l) {
+
+    public String getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
+    public void setBrand(String brand){this.brand = brand ;}
+
 
     public String getCategory() {
         return category;
@@ -96,7 +96,6 @@ public class Produtos {
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
     }
-
 
 
 }

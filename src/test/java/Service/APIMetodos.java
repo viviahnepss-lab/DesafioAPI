@@ -1,12 +1,16 @@
 package Service;
 
+import Utils.GeradorMassa;
 import Utils.Propriedades;
-import com.google.gson.JsonObject;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.response.ResponseBodyExtractionOptions;
 import io.restassured.specification.RequestSpecification;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 public class APIMetodos {
@@ -14,12 +18,15 @@ public class APIMetodos {
     public Properties prop = new Propriedades().getProperties();
     public static RequestSpecification request = RestAssured.with();
 
+    GeradorMassa gm = new GeradorMassa();
+   // private Logger log = new Logger();
 
-    public void request(JsonObject json){
+
+    public void request(Map<String,String> json){
         request = request.given().contentType(ContentType.JSON)
                 .header("Content-Type", "application/json")
                 .body(json)
-                .log().all();
+                .log().body();
     }
 
 
@@ -27,21 +34,58 @@ public class APIMetodos {
       response = request.when()
               .log().all()
               .get(prop.getProperty(env)+ prop.getProperty(endpoint));
+
     }
 
-    public void getRequestParametro(String env, String endpoint , int id) throws Throwable{
+    public void getRequestParametro(String env, String endpoint,int id, boolean flag) throws Throwable{
+        if ( flag== true) {
+            response = request.when()
+                    .log().all()
+                    .get(prop.getProperty(env)+ prop.getProperty(endpoint)+"/"+gm.geradorLetra());
+
+           }
+        if(id ==1000){
+            response = request.when()
+                    .log().all()
+                    .get(prop.getProperty(env) + prop.getProperty(endpoint) + "/" + id);
+
+        }
+        else {
+            int ran = gm.geradorId();
+            response = request.when()
+                    .log().all()
+                    .get(prop.getProperty(env) + prop.getProperty(endpoint) + "/" + ran);
+        }
+
+    }
+
+    public void postRequest(String env, String endpoint) throws Throwable{
         response = request.when()
                 .log().all()
-                .get(prop.getProperty(env)+ prop.getProperty(endpoint)+"/"+id);
+                .post(prop.getProperty(env)+ prop.getProperty(endpoint));
     }
-    public void postRequest(String env, String endpoint) throws Throwable{
-        response = request.when().post(prop.getProperty(env)+ prop.getProperty(endpoint));
+
+    public ResponseBodyExtractionOptions extraiBody(int cod) throws Throwable {
+
+        ResponseBodyExtractionOptions resp =  response
+                .then()
+                .extract().body()
+                ;
+        return  resp;
+    }
+
+    public List<String> extraiDadosBody (List<String> path, int code) throws Throwable {
+        ResponseBodyExtractionOptions bodyresp =  extraiBody(code);
+        List<String> dados = new ArrayList<>();
+        int i=0;
+
+        for (i=0;i<path.size();i++){
+          dados.add(i,bodyresp.path(path.get(i)));
+        }
+
+        return dados;
     }
 
 
-    public String extraiResposta(String path) throws Throwable{
-      String valor = response.then().extract().path(path).toString();
-        return valor;
-    }
 
 }
