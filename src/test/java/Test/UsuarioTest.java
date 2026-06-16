@@ -1,4 +1,4 @@
-package Step;
+package Test;
 
 import Model.Users;
 import Service.APIMetodos;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class UsuarioStep {
+public class UsuarioTest {
      Users usuario = new Users();
      GeradorMassa gm = new GeradorMassa();
      APIMetodos api = new APIMetodos();
@@ -28,18 +28,18 @@ public class UsuarioStep {
      public void ValidaHealth() throws Throwable {
          api.getRequest("base", "health");
          dadosVal.add("status");
-         user = api.extraiDadosBody(dadosVal,200);
+         user = api.extraiDadosBody(dadosVal,"200");
          Assert.assertEquals("ok", user.get(0));
      }
 
 
     @Test
     @Tag("Usuario")
-    @DisplayName("CTU001- Validar busca de usuário por ID com sucesso -")
+    @DisplayName("CTU001- Validar busca de usuário  com sucesso -")
     public void CTU001_Busca_UsuarioLista_Valido() throws Throwable {
 
         api.getRequest("base", "users");
-        user = api.extraiDadosBody(dadosVal, 200);
+        user = api.extraiDadosBody(dadosVal, "200");
         System.out.print("Buscado: "+user.get(3));
         Assert.assertNotNull(user);
 
@@ -54,7 +54,7 @@ public class UsuarioStep {
          api.getRequestParametro("base", "users",0 ,false);
          dadosVal.add("firstName");
          dadosVal.add("password");
-         user = api.extraiDadosBody(dadosVal, 200);
+         user = api.extraiDadosBody(dadosVal, "200");
          Assert.assertNotNull(user);
          Assert.assertEquals(2, user.size());
      }
@@ -66,7 +66,7 @@ public class UsuarioStep {
 
         api.getRequestParametro("base", "users", 1000, false);
         dadosVal.add("message");
-        user = api.extraiDadosBody(dadosVal, 404);
+        user = api.extraiDadosBody(dadosVal, "404");
         Assert.assertTrue(user.get(0).contains("not found"));
         Assert.assertTrue(user.get(0).contains("1000"));
     }
@@ -75,9 +75,9 @@ public class UsuarioStep {
     @Tag("Usuario")
     @DisplayName("CTU004- Validar busca de usuário inválido")
     public void CTU004_Busca_Usuario_Invalido() throws Throwable {
-        api.getRequestParametro("base", "users", 0, true);
+        api.getRequestParametro("base", "users", 1001, true);
         dadosVal.add("message");
-        user = api.extraiDadosBody(dadosVal, 400);
+        user = api.extraiDadosBody(dadosVal, "400");
         Assert.assertTrue(user.get(0).contains("Invalid user id"));
      }
 

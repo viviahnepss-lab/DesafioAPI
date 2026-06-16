@@ -1,16 +1,16 @@
 package Runners;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
+import Test.LoginTest;
+import Test.UsuarioTest;
+import org.junit.experimental.categories.Categories;
 import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(
-  features = {"Features"},
-   glue ={"Step"},
-   tags ={"@Login"} ,
-   dryRun = false,
-   monochrome = true
-)
+@RunWith(Categories.class)
+@Categories.IncludeCategory(TesteNegativos.class)
+@Suite.SuiteClasses({
+        LoginTest.class,
+        UsuarioTest.class})
+
 public class Runner {
 }

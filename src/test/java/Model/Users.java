@@ -1,12 +1,12 @@
 package Model;
 
 public class Users {
-     private String firstName;
+     private String token;
      private String password;
 
 
      public Users(String firstName, String password) {
-          this.firstName = firstName;
+          this.token = firstName;
           this.password = password;
      }
 
@@ -14,12 +14,12 @@ public class Users {
 
      }
 
-     public String getFirstName() {
-          return firstName;
+     public String getToken() {
+          return token;
      }
 
-     public void setFirstName(String firstName) {
-          this.firstName = firstName;
+     public void setToken(String token) {
+          this.token = token;
      }
 
      public String getPassword() {

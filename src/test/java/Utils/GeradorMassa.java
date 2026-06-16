@@ -20,7 +20,7 @@ public class GeradorMassa {
     public Users geraUsuario() {
 
         Users usuario = new Users ();
-        usuario.setFirstName(faker.name().firstName());
+        usuario.setToken(faker.name().firstName());
         usuario.setPassword(faker.name().firstName()+geradorId());
 
       return usuario;
