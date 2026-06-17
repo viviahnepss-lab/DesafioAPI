@@ -1,13 +1,9 @@
-#DESAFIO SICREDI 
+#DESAFIO RestAssured 
 viviahnepss-project
 
 ## Objetivo do Projeto:
-Este projeto tem como visa demonstrar o Skill técnico do candidato em automação de teste para a vaga de analista de qualidadecom 
+Este projeto visa demonstrar o Skill técnico do candidato em automação de teste para a vaga de analista de qualidadecom 
 objetivo de conhecer as habilidades em testes para API.
-
-## Documentação:
-Segue abaixo link da documentação das APIS.
-[Desafio - Sicredi](https://sicredi-desafio-qe.readme.io/reference/objetivo)
 
 
 ## Pré - Requisitos:
@@ -17,7 +13,7 @@ Para execução deste projeto é necessário ter as seguintes ferramentas e conf
 * JAVA SDK 17 
 
 ## Tecnologias Utilizadas:
-* Rest Asured 
+* Rest Assured 
 * Junit 4
 
 ## Repositório do projeto :
