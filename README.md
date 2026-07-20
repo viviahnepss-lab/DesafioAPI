@@ -2,9 +2,10 @@
 viviahnepss-project
 
 ## Objetivo do Projeto:
-Este projeto visa demonstrar o Skill técnico do candidato em automação de teste para a vaga de analista de qualidadecom 
-objetivo de conhecer as habilidades em testes para API.
+Este projeto visa demonstrar o Skill técnico do candidato em automação de teste para API e implementar melhorias no projeto.
 
+## Documentação das APIS: 
+https://sicredi-desafio-qe.readme.io/reference/home
 
 ## Pré - Requisitos:
 
@@ -70,11 +71,9 @@ N"ao foram desenvolvidos features cucumber para este projeto.
 ## Pontos de melhoria identificados
  - Inserção de logs para acompanhamento do andamento dos testes.
  - Implementação do report de teste.
- - Melhoria das classes Model com Lombok.
-
+ - Inserir Cucumber 
+ - Validaçoes com hamcrest
 ## BUG:
-- Foi identificado no cadastro de produtos que o sistema não esta
-retornando dados do response para o projeto porem não houve tempo habil para melhor analise e novos testes.
 
 
 ***

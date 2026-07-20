@@ -1,7 +1,7 @@
 package Utils;
 
 import Model.Produtos;
-import Model.Users;
+import Model.Usuario;
 import com.github.javafaker.Faker;
 
 public class GeradorMassa {
@@ -17,9 +17,9 @@ public class GeradorMassa {
         String id=faker.letterify("?");
         return id;
     }
-    public Users geraUsuario() {
+    public Usuario geraUsuario() {
 
-        Users usuario = new Users ();
+        Usuario usuario = new Usuario ();
         usuario.setToken(faker.name().firstName());
         usuario.setPassword(faker.name().firstName()+geradorId());
 
@@ -30,9 +30,9 @@ public class GeradorMassa {
         Produtos produto = new Produtos ();
         produto.setTitle(faker.commerce().productName());
         produto.setDescription((faker.commerce().material()));
-        produto.setPrice(faker.commerce().price(1.00,10000.00));
-        produto.setDiscountPercentage((faker.number().digit()));
-        produto.setStock(faker.number().digit());
+        produto.setPrice(Double.valueOf(faker.commerce().price(1.00,10000.00)));
+        produto.setDiscountPercentage(Double.valueOf((faker.number().digit())));
+        produto.setStock(Integer.valueOf(faker.number().digit()));
         produto.setBrand(faker.artist().name());
         produto.setCategory(faker.commerce().department());
         produto.setThumbnail("https://"+faker.internet().url());
